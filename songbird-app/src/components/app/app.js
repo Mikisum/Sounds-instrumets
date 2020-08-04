@@ -8,12 +8,13 @@ import BirdDetails from '../bird-details';
 import RoundButton from '../round-button';
 
 const App = () => {
+
   return (
     <div>
       <Header />
       <ItemList />
       <RandomBird />
-      <div className="row">
+      <div className="row mb-2">
         <div className="col-sm-6">
           <BirdList />
         </div>

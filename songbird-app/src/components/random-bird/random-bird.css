@@ -2,3 +2,7 @@
   width: 200px;
   height: 200px;
 }
+
+.player {
+  min-width: 300px;
+}
