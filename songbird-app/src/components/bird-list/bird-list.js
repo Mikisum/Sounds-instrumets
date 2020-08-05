@@ -6,32 +6,30 @@ import BirdListItem from '../bird-list-item';
 
 export default class BirdList extends Component {
 
-  // state = {
-  //   name: null
-  // };
+  state = {
+    birdsList: null
+  };
 
-  // birds = [];
+  componentDidMount(){
+    this.setState({
+      birdsList: birdsData
+    })
+  }
+  
+  renderBirdItems(arr) {
+    return arr.map(({id, name}) => {
+      return (
+        <li key={ id } 
+            className="list-group-item list-group-item-action"
+            onClick={() => this.props.onItemSelected(id)}>
+            <BirdListItem label={name}/></li>
+      );
+    });
+  }
 
-  // constructor() {
-  //   super();
-  //   this.updateName();
-  // }
-  
-  // updateName() {
-  //   birdsData[0].forEach((obj) => {
-  //     console.log(obj.name);
-  //    this.birds.push({name: obj.name});
-  //   });
-  // }
-  
-  birdItems = birdsData[0].map((item) => {
-   
-    return (
-      <li key={ item.name } className="list-group-item list-group-item-action">
-        <BirdListItem label={item.name}/></li>
-    )
-  }) 
   render() {
+
+    const birdItems = this.renderBirdItems(birdsData[0]);
     return (
       <ul className="list-group">
         { birdItems }
