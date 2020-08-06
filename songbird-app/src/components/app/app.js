@@ -25,12 +25,12 @@ export default class App extends Component {
     <div>
       <Header />
       <ItemList />
-      <RandomBird />
+      <RandomBird />    
       <div className="row mb-2">
-        <div className="col-sm-6">
+        <div className="col-md-6">
           <BirdList onItemSelected={this.onBirdSelected}/>
         </div>
-        <div className="col-sm-6">
+        <div className="col-md-6">
           <BirdDetails birdId={this.state.selectedBird}/>
         </div>
       </div>

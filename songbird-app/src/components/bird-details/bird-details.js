@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import birdsData from '../services/birds';
+import Player from '../audio-player';
 import './bird-details.css';
 
 export default class BirdDetails extends Component {
@@ -29,7 +30,9 @@ export default class BirdDetails extends Component {
       id: birdsData[0][birdId-1],
       name: birdsData[0][birdId-1].name,
       species: birdsData[0][birdId-1].species,
-      description: birdsData[0][birdId-1].description
+      description: birdsData[0][birdId-1].description,
+      audio: birdsData[0][birdId-1].audio,
+      image: birdsData[0][birdId-1].image
     } });
   }
 
@@ -43,27 +46,28 @@ export default class BirdDetails extends Component {
       )
     }
   
-    const {bird: {id, name, species, description} } = this.state; 
+    const {bird: {id, name, species, description, audio, image} } = this.state; 
     return (
-      <div className="bird-details card">
-        <img className="bird-image"
-          src={`https://cdn.the-scientist.com/assets/articleNo/66820/hImg/34886/bird-banner3-l.png`}
-          alt="bird"/>
-        <div className="card-body">
-          <h4>{name}{this.props.birdName}</h4>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">
+      <div className="bird-details card p-3">
+        <div  className="row no-gutters">
+          <div className="">
+            <img className="bird-image card-img"
+              src={ image }
+              alt="bird"/>
+          </div>
+          <div className="card-body ">
+            <h4>{name}{this.props.birdName}</h4>
+            <div>
               <span className="latinName">{species}</span>
-            </li>
-            <li className="list-group-item">
-              плеер
-            </li>
-            <li className="list-group-item">
-              <span>{description}</span>
-            </li>
-          </ul>
+            </div> 
           </div>  
-
+        </div>
+        <div className="py-2">
+          <Player src={audio}/>
+        </div>
+        <div>
+          <span>{description}</span>
+        </div>
       </div>
     )
   }

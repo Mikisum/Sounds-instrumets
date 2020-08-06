@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
+import Player from '../audio-player';
 
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
 
 
 import './random-bird.css';
@@ -37,40 +36,20 @@ export default class RandomBird extends Component {
   render() {
     const { name } = this.state;
     return (
-      <div className="row mb-2">
-        <div className="col-sm my-2 align-items-center">
-          <img className="bird-image" alt="bird" 
-            src="https://cdn.the-scientist.com/assets/articleNo/66820/hImg/34886/bird-banner3-l.png"></img>
-        </div>
-        <div className="col-sm">
-          <div className="pt-2">
-            {name}
+      <div className="my-2 card">
+        <div className="row no-gutters">
+          <div className="col-md-4 p-3">
+            <img className="bird-image card-img" alt="bird" 
+              src="https://cdn.the-scientist.com/assets/articleNo/66820/hImg/34886/bird-banner3-l.png"></img>
           </div>
-          <hr></hr>
-          <div>
-            <AudioPlayer
-              className="player"
-              autoPlay
-              src="https://www.xeno-canto.org/api/2/recordings?query=Ворон"
-              onPlay={e => console.log("onPlay")}
-              showJumpControls=""
-              layout="horizontal-reverse"
-            />
+          <div className="col-md-8">
+            <div className="card-body">
+              <h1 className="card-title">{name}</h1>
+              <div><Player /></div>
+            </div>
           </div>
         </div>
       </div>
     )
-  }
-
-  getBirdVoice() {
-    fetch('https://www.xeno-canto.org/api/2/recordings?query=Ворон')
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-      });
-  }
-  
-  
+  }  
 }
