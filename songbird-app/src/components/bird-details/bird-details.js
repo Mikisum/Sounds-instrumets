@@ -21,7 +21,6 @@ export default class BirdDetails extends Component {
 
   updateBird() {
     const { birdId } =  this.props;
-    console.log(birdId);
     if (!birdId) {
       return;
     }
@@ -46,7 +45,7 @@ export default class BirdDetails extends Component {
       )
     }
   
-    const {bird: {id, name, species, description, audio, image} } = this.state; 
+    const {bird: { name, species, description, audio, image} } = this.state; 
     return (
       <div className="bird-details card p-3">
         <div  className="row no-gutters">

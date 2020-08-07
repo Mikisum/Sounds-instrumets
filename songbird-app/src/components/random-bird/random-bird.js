@@ -11,41 +11,37 @@ export default class RandomBird extends Component {
 
   state = {
     name: '*****',
+    image: null,
+    audio: null
   }
 
-  constructor() {
-    super();
+  componentDidMount() {
     this.updateBird();
   }
 
   updateBird() {
-    console.log(birdsData);
-    // birdsData.forEach((el) => {
-    //   el.forEach((obj) => {
-    //     console.log(obj.name);
-    //   })
-    // })
-    // this.xenoCantoService.getBirdVoice()
-    //   .then((data) => {
-    //     this.setState({
-    //       name: data.recordings 
-    //     })
-    //   })
+    
+    this.setState({
+      // name: birdsData[0][1].name,
+      // audio: birdsData[0][1].audio,
+      // image: birdsData[0][1].image
+    }) 
   }
 
   render() {
-    const { name } = this.state;
+    // const { name, image, audio } = this.state;
+    const { level, random} = this.props;
     return (
       <div className="my-2 card">
         <div className="row no-gutters">
           <div className="col-md-4 p-3">
             <img className="bird-image card-img" alt="bird" 
-              src="https://cdn.the-scientist.com/assets/articleNo/66820/hImg/34886/bird-banner3-l.png"></img>
+              src={birdsData[level][random].image}></img>
           </div>
           <div className="col-md-8">
             <div className="card-body">
-              <h1 className="card-title">{name}</h1>
-              <div><Player /></div>
+              <h1 className="card-title">{birdsData[level][random].name}</h1>
+              <div><Player src={birdsData[level][random].audio}/></div>
             </div>
           </div>
         </div>

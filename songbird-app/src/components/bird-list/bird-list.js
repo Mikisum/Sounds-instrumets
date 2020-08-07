@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import './bird-list.css';
 import birdsData from '../services/birds';
-import BirdListItem from '../bird-list-item';
 
 export default class BirdList extends Component {
 
@@ -21,8 +20,10 @@ export default class BirdList extends Component {
       return (
         <li key={ id } 
             className="list-group-item list-group-item-action"
-            onClick={() => this.props.onItemSelected(id)}>
-            <BirdListItem label={name}/></li>
+            onClick={(event) => this.props.onItemSelected(id, event)}>
+            <span className="li-btn"></span>
+            {name}
+        </li>
       );
     });
   }
