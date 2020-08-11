@@ -4,8 +4,12 @@ import './round-button.css';
 
 export default class RoundButton extends Component {
   render() {
+
     return (
-      <button type="button" className="btn btn-secondary btn-block level-button">Next level</button>
+      <button 
+        type="button"  
+        className="btn btn-secondary btn-block level-button"
+        onClick={this.props.isButtonClicked}>Next level</button>
     )
   }
 }

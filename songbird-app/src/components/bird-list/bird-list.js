@@ -29,11 +29,12 @@ export default class BirdList extends Component {
   }
 
   render() {
-
-    const birdItems = this.renderBirdItems(birdsData[0]);
+    const { level } = this.props;
+    const BirdsList = this.renderBirdItems(birdsData[level]);
+    
     return (
       <ul className="list-group">
-        { birdItems }
+        { BirdsList }
       </ul>
     );
   }

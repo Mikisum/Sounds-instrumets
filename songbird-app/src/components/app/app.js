@@ -15,60 +15,88 @@ export default class App extends Component {
     selectedBird: null,
     level: 0,
     random:0,
-    isWin: false
+    isWin: false,
+    score: 0,
+    try: 5
   };
 
   componentDidMount() {
     this.setState({
-      random: this.randomBird()
+      random: this.getRandomBird()
     });
   }
 
-  randomBird = () => {
+  getRandomBird = () => {
     return Math.floor(Math.random() * 6);
   }
 
   onBirdSelected = (id, event) => {
     event.persist();
     this.setState({
-      selectedBird: id - 1
+      selectedBird: id
     });
     this.changeStyleListItem(event);
+    this.checkAnswer(id);
   };
+
+  checkAnswer = (selectedBird) => {
+    if(selectedBird - 1 === this.state.random) {
+      //setSuccessAudio
+      this.setState((prevState) => ({
+        score: prevState.score + this.state.try
+      }));
+    }
+  } 
 
   changeStyleListItem = (event) => {
     console.log(`${this.state.random} ${ event._targetInst.key - 1} `)
    
-    if(this.state.random === event._targetInst.key){
+    if(this.state.random === event._targetInst.key - 1){
       
       event.target.firstChild.classList.add('success');
+    } else {
+      this.setState((prevState) => ({
+        try: prevState.try - 1
+      }))
+      event.target.firstChild.classList.add('error');
     }
-    
-    
   }  
+
+  getNextPage = () => {
+    if(this.state.level === 5) {
+      this.setState({
+        level: 0
+      })
+    }
+    this.setState((prevState) => ({
+      level: prevState.level + 1,
+      random: this.getRandomBird()
+    }));
+  }
+
 
   render() {
 
-    const { random } = this.state;
+    const { random, level, score } = this.state;
     return (
     <div>
-      <Header />
+      <Header score={score}/>
       <ItemList />
       <RandomBird 
-        level={0}
+        level={level}
         random={random}
         />    
       <div className="row mb-2">
         <div className="col-md-6">
           <BirdList 
             onItemSelected={this.onBirdSelected}
-            level={0}/>
+            level={level}/>
         </div>
         <div className="col-md-6">
           <BirdDetails birdId={this.state.selectedBird}/>
         </div>
       </div>
-      <RoundButton/>
+      <RoundButton isButtonClicked={this.getNextPage} />
     </div>
     );
   }
