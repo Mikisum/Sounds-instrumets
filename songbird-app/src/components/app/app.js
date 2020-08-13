@@ -15,9 +15,10 @@ export default class App extends Component {
     selectedBird: null,
     level: 0,
     random:0,
-    isWin: false,
+    isRightAnswer: false,
     score: 0,
-    try: 5
+    try: 0,
+    isSelected: false
   };
 
   componentDidMount() {
@@ -33,36 +34,44 @@ export default class App extends Component {
   onBirdSelected = (id, event) => {
     event.persist();
     this.setState({
-      selectedBird: id
+      selectedBird: id,
+      isSelected: true
     });
-    this.changeStyleListItem(event);
+    if(!event.target.firstChild.classList.contains('success') && !event.target.firstChild.classList.contains('error')) {
+      this.setState((prevState) => ({
+        try: prevState.try + 1
+      }));
+    }
     this.checkAnswer(id);
+    this.changeStyleListItem(event);
   };
 
   checkAnswer = (selectedBird) => {
+    if(this.state.isRightAnswer) return;
     if(selectedBird - 1 === this.state.random) {
       //setSuccessAudio
       this.setState((prevState) => ({
-        score: prevState.score + this.state.try
+        score: prevState.score + 5 - this.state.try,
+        isRightAnswer: true
       }));
     }
   } 
 
   changeStyleListItem = (event) => {
     console.log(`${this.state.random} ${ event._targetInst.key - 1} `)
-   
-    if(this.state.random === event._targetInst.key - 1){
-      
+    if(this.state.random === event._targetInst.key - 1 && !this.state.isRightAnswer){
       event.target.firstChild.classList.add('success');
-    } else {
-      this.setState((prevState) => ({
-        try: prevState.try - 1
-      }))
+    } else if (this.state.random !== event._targetInst.key - 1 && !this.state.isRightAnswer) {
       event.target.firstChild.classList.add('error');
     }
-  }  
+  } 
+  
+  clearPreviousResults = () => {
+  
+  }
 
   getNextPage = () => {
+    if (!this.state.isRightAnswer) return;
     if(this.state.level === 5) {
       this.setState({
         level: 0
@@ -70,7 +79,10 @@ export default class App extends Component {
     }
     this.setState((prevState) => ({
       level: prevState.level + 1,
-      random: this.getRandomBird()
+      random: this.getRandomBird(),
+      isRightAnswer: false,
+      try: 0,
+      isSelected: false
     }));
   }
 

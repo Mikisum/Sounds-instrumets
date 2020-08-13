@@ -4,24 +4,17 @@ import './bird-list.css';
 import birdsData from '../services/birds';
 
 export default class BirdList extends Component {
-
-  state = {
-    birdsList: null
-  };
-
-  componentDidMount(){
-    this.setState({
-      birdsList: birdsData
-    })
-  }
   
-  renderBirdItems(arr) {
+  renderBirdItems = (arr) => {
+
+    const className = this.props.level % 2 === 1 ? 'li-btn default' : 'li-btn';
+    
     return arr.map(({id, name}) => {
       return (
         <li key={ id } 
             className="list-group-item list-group-item-action"
             onClick={(event) => this.props.onItemSelected(id, event)}>
-            <span className="li-btn"></span>
+            <span className={className}></span>
             {name}
         </li>
       );
