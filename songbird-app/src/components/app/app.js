@@ -6,6 +6,7 @@ import RandomBird from '../random-bird';
 import BirdList from '../bird-list';
 import BirdDetails from '../bird-details';
 import RoundButton from '../round-button';
+import FinalPage from '../finalPage';
 
 import './app.css';
 
@@ -13,7 +14,7 @@ export default class App extends Component {
 
   state = {
     selectedBird: null,
-    level: 0,
+    level: 5,
     random:0,
     isRightAnswer: false,
     score: 0,
@@ -75,7 +76,7 @@ export default class App extends Component {
     if (!this.state.isRightAnswer) return;
     if(this.state.level === 5) {
       this.setState({
-        level: 6,
+        level: -1,
         gameOver: true
       })
     }
@@ -88,10 +89,29 @@ export default class App extends Component {
     }));
   }
 
+  showNewGame = () => {
+    this.setState({
+      score: 0,
+      gameOver: false
+    });
+  }
+
 
   render() {
 
-    const { random, level, score } = this.state;
+    const { random, level, score, gameOver } = this.state;
+    if (gameOver) {
+      return (
+        <div>
+          <Header 
+            score={score}/>
+          <ItemList level={level}/>  
+          <FinalPage 
+            score={score}
+            showNewGame={this.showNewGame} />
+        </div>
+      )
+    }
     return (
     <div>
       <Header score={score}/>
