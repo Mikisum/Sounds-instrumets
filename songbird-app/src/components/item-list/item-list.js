@@ -4,15 +4,15 @@ import './item-list.css';
 
 export default class ItemList extends Component {
 
-  // componentDidUpdate() {
-  //   const li = document.querySelectorAll('li');
-  //   li.forEach((el, index) => {
-  //     el.classList.remove('active');
-  //     if(index === this.props.level) {
-  //       el.classList.add('active');
-  //     }
-  //   })
-  // }
+  componentDidUpdate() {
+    const li = document.querySelectorAll('li');
+    li.forEach((el, index) => {
+      el.classList.remove('active');
+      if(index === this.props.level) {
+        el.classList.add('active');
+      }
+    })
+  }
 
   render() {
     return (

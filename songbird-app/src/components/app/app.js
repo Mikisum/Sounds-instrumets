@@ -18,7 +18,8 @@ export default class App extends Component {
     isRightAnswer: false,
     score: 0,
     try: 0,
-    isSelected: false
+    isSelected: false,
+    gameOver: false
   };
 
   componentDidMount() {
@@ -74,7 +75,8 @@ export default class App extends Component {
     if (!this.state.isRightAnswer) return;
     if(this.state.level === 5) {
       this.setState({
-        level: 0
+        level: 6,
+        gameOver: true
       })
     }
     this.setState((prevState) => ({
@@ -93,7 +95,7 @@ export default class App extends Component {
     return (
     <div>
       <Header score={score}/>
-      <ItemList />
+      <ItemList level={level}/>
       <RandomBird 
         level={level}
         random={random}
