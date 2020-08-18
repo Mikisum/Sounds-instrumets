@@ -14,7 +14,7 @@ export default class App extends Component {
 
   state = {
     selectedBird: null,
-    level: 5,
+    level: 0,
     random:0,
     isRightAnswer: false,
     score: 0,
