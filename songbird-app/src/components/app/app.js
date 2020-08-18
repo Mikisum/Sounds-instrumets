@@ -7,6 +7,8 @@ import BirdList from '../bird-list';
 import BirdDetails from '../bird-details';
 import RoundButton from '../round-button';
 import FinalPage from '../finalPage';
+import successAudio from '../../assets/audio/correct.mp3';
+import errorAudio from '../../assets/audio/error.mp3'
 
 import './app.css';
 
@@ -48,14 +50,28 @@ export default class App extends Component {
     this.changeStyleListItem(event);
   };
 
+  setAudio = (isRightAnswer) => {
+    const successAudio = document.getElementById('successAudio');
+    console.log(successAudio);
+    const errorAudio= document.getElementById('errorAudio');
+    console.log(errorAudio);
+    if(isRightAnswer) {
+      successAudio.play();
+    } else {
+      errorAudio.play();
+    }
+  }
+
   checkAnswer = (selectedBird) => {
     if(this.state.isRightAnswer) return;
     if(selectedBird - 1 === this.state.random) {
-      //setSuccessAudio
+      this.setAudio(true);
       this.setState((prevState) => ({
         score: prevState.score + 5 - this.state.try,
         isRightAnswer: true
       }));
+    } else {
+      this.setAudio(false);
     }
   } 
 
@@ -131,6 +147,8 @@ export default class App extends Component {
         </div>
       </div>
       <RoundButton isButtonClicked={this.getNextPage} />
+      <audio src={successAudio} id="successAudio"></audio>
+      <audio src={errorAudio} id="errorAudio"></audio>
     </div>
     );
   }

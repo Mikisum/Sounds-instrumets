@@ -41,7 +41,7 @@ export default class RandomBird extends Component {
           <div className="col-md-8">
             <div className="card-body">
               <h1 className="card-title">{birdsData[level][random].name}</h1>
-              <div><Player src={birdsData[level][random].audio}/></div>
+              <div><Player src={ birdsData[level][random].audio}/></div>
             </div>
           </div>
         </div>
