@@ -115,7 +115,7 @@ export default class App extends Component {
 
   render() {
 
-    const { random, level, score, gameOver } = this.state;
+    const { random, level, score, gameOver, isRightAnswer } = this.state;
     if (gameOver) {
       return (
         <div>
@@ -135,12 +135,14 @@ export default class App extends Component {
       <RandomBird 
         level={level}
         random={random}
+        isRightAnswer={isRightAnswer}
         />    
       <div className="row mb-2">
         <div className="col-md-6">
           <BirdList 
             onItemSelected={this.onBirdSelected}
-            level={level}/>
+            level={level}
+            isRightAnswer={isRightAnswer}/>
         </div>
         <div className="col-md-6">
           <BirdDetails birdId={this.state.selectedBird}/>
