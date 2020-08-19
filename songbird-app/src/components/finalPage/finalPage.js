@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-
+import winImage from '../../assets/images/win.jpg';
+import './finalPage.css';
 export default class FinalPage extends Component {
 
   render() {
@@ -22,6 +22,7 @@ export default class FinalPage extends Component {
       return (
         <div className="card text-center mx-auto mt-5 w-50">
         <div className="card-body">
+          <img className="card-image win-image" src={winImage} alt="win"></img>
           <h3 className="card-title">Поздравляем!</h3>
           <p className="card-text">Вы набрали максимальное колличество баллов!</p>
             <button 

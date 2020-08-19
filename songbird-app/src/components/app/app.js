@@ -52,9 +52,7 @@ export default class App extends Component {
 
   setAudio = (isRightAnswer) => {
     const successAudio = document.getElementById('successAudio');
-    console.log(successAudio);
     const errorAudio= document.getElementById('errorAudio');
-    console.log(errorAudio);
     if(isRightAnswer) {
       successAudio.play();
     } else {
@@ -76,7 +74,6 @@ export default class App extends Component {
   } 
 
   changeStyleListItem = (event) => {
-    console.log(`${this.state.random} ${ event._targetInst.key - 1} `)
     if(this.state.random === event._targetInst.key - 1 && !this.state.isRightAnswer){
       event.target.firstChild.classList.add('success');
     } else if (this.state.random !== event._targetInst.key - 1 && !this.state.isRightAnswer) {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+import defaultBird from '../../assets/images/default-bird.jpg';
 
 import './random-bird.css';
 
@@ -31,17 +32,19 @@ export default class RandomBird extends Component {
   )
 
   render() {
-    const { level, random} = this.props;
+    
+    const { level, random, isRightAnswer} = this.props;
+    console.log(`Правильный ответ - ${birdsData[level][random].name}`);
     return (
       <div className="my-2 card">
         <div className="row no-gutters">
           <div className="col-md-4 p-3">
             <img className="bird-image card-img" alt="bird" 
-              src={birdsData[level][random].image}></img>
+              src={isRightAnswer ? birdsData[level][random].image : defaultBird}></img>
           </div>
           <div className="col-md-8">
             <div className="card-body">
-              <h1 className="card-title">{birdsData[level][random].name}</h1>
+              <h1 className="card-title">{isRightAnswer ? birdsData[level][random].name: '*****'}</h1>
               <div className="audio-player">{this.createAudioPlayer(birdsData[level][random].audio)}</div>
             </div>
           </div>
