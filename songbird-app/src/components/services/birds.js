@@ -6,7 +6,9 @@ const birdsData = [
       species: 'Corvus corax',
       description: 'Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров. Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день, когда черные вороны улетят от Тауэра, монархия рухнет.',
       image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',
-      audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'
+      audio: 'https://raw.githubusercontent.com/Mikisum/muisic-data/master/string/%D0%B2%D0%B8%D0%BE%D0%BB%D0%BE%D0%BD%D1%87%D0%B5%D0%BB%D1%8C.mp3?token=ANYIVHTAPLTYLOE7HIBT5PS7H2DGY'
+      // audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3'
+      
     },
     {
       id: 2,

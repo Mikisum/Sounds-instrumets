@@ -20,18 +20,18 @@ export default class BirdDetails extends Component {
   }
 
   updateBird() {
-    const { birdId } =  this.props;
+    const { birdId, level } =  this.props;
     if (!birdId) {
       return;
     }
 
     this.setState({ bird: {
-      id: birdsData[0][birdId-1],
-      name: birdsData[0][birdId-1].name,
-      species: birdsData[0][birdId-1].species,
-      description: birdsData[0][birdId-1].description,
-      audio: birdsData[0][birdId-1].audio,
-      image: birdsData[0][birdId-1].image
+      id: birdsData[level][birdId-1],
+      name: birdsData[level][birdId-1].name,
+      species: birdsData[level][birdId-1].species,
+      description: birdsData[level][birdId-1].description,
+      audio: birdsData[level][birdId-1].audio,
+      image: birdsData[level][birdId-1].image
     } });
   }
 

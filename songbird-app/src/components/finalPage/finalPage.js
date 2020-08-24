@@ -7,7 +7,7 @@ export default class FinalPage extends Component {
     const {score, showNewGame} = this.props;
     if(score !== 30) {
       return (
-      <div className="card text-center mx-auto mt-5 w-50">
+      <div className="card text-center mx-auto mt-5">
         <div className="card-body">
           <p>Вы набрали {score} из 30 баллов</p>
             <button 
@@ -20,7 +20,7 @@ export default class FinalPage extends Component {
      )
     } else {
       return (
-        <div className="card text-center mx-auto mt-5 w-50">
+        <div className="card text-center mx-auto mt-5">
         <div className="card-body">
           <img className="card-image win-image" src={winImage} alt="win"></img>
           <h3 className="card-title">Поздравляем!</h3>

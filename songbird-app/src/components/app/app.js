@@ -142,10 +142,14 @@ export default class App extends Component {
             isRightAnswer={isRightAnswer}/>
         </div>
         <div className="col-md-6">
-          <BirdDetails birdId={this.state.selectedBird}/>
+          <BirdDetails
+            birdId={this.state.selectedBird}
+            level={level}/>
         </div>
       </div>
-      <RoundButton isButtonClicked={this.getNextPage} />
+      <RoundButton 
+        isRightAnswer={isRightAnswer}
+        isButtonClicked={this.getNextPage} />
       <audio src={successAudio} id="successAudio"></audio>
       <audio src={errorAudio} id="errorAudio"></audio>
     </div>
