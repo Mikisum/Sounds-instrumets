@@ -47,22 +47,22 @@ export default class BirdDetails extends Component {
   
     const {bird: { name, species, description, audio, image} } = this.state; 
     return (
-      <div className="bird-details card p-3">
-        <div  className="row no-gutters">
-          <div className="">
+      <div className="details card p-3">
+        <div className="row">
+          <div className="image-container col-lg-6">
             <img className="bird-image card-img"
               src={ image }
               alt="bird"/>
           </div>
-          <div className="card-body ">
+          <div className="name-container col-lg-6">
             <h4>{name}{this.props.birdName}</h4>
-            <div>
-              <span className="latinName">{species}</span>
+            <div className="latinName">
+              <span>{species}</span>
             </div> 
+            <div className="py-2">
+              <Player src={audio}/>
+            </div>
           </div>  
-        </div>
-        <div className="py-2">
-          <Player src={audio}/>
         </div>
         <div>
           <span>{description}</span>

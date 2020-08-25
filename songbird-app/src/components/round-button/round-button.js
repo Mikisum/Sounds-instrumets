@@ -9,7 +9,7 @@ export default class RoundButton extends Component {
       <button 
         type="button"  
         className={isRightAnswer ? "btn next btn-block" : "btn btn-secondary btn-block level-button"}
-        onClick={this.props.isButtonClicked}>Next level</button>
+        onClick={this.props.isButtonClicked}>Следующий вопрос</button>
     )
   }
 }

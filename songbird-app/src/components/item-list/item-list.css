@@ -2,7 +2,11 @@
   position: relative;
   display: block;
   padding: 0.75rem 1.25rem;
-  background-color: #303030;
-  border: 1px solid #444;
+  background-color: #5b42cb;
+  border: 1px solid #7358ea;
   max-width: 185px;
+}
+.active {
+  background-color:#3b2a84 !important;
+  border: 1px solid #7358ea !important;
 }

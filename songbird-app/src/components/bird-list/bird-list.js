@@ -26,7 +26,7 @@ export default class BirdList extends Component {
     const BirdsList = this.renderBirdItems(birdsData[level]);
     
     return (
-      <ul className="list-group">
+      <ul className="bird-list list-group mb-3">
         { BirdsList }
       </ul>
     );

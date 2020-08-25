@@ -17,12 +17,12 @@ export default class ItemList extends Component {
   render() {
     return (
       <ul className=" d-flex flex-wrap justify-content-center p-0">
-        <li className="item flex-fill list-group-item list-group-item-action active">Разминка</li>
-        <li className="item flex-fill  list-group-item list-group-item-action">Воробьиные</li>
-        <li className="item flex-fill  list-group-item list-group-item-action">Лесные птицы</li>
-        <li className="item flex-fill  list-group-item list-group-item-action">Певчие птицы</li>
-        <li className="item flex-fill  list-group-item list-group-item-action">Хищные птицы</li>
-        <li className="item flex-fill  list-group-item list-group-item-action">Морские птицы</li>
+        <li className="item flex-fill list-group-item list-group-item-action active">Духовые</li>
+        <li className="item flex-fill  list-group-item list-group-item-action">Ударные</li>
+        <li className="item flex-fill  list-group-item list-group-item-action">Язычковые</li>
+        <li className="item flex-fill  list-group-item list-group-item-action">Струнные</li>
+        <li className="item flex-fill  list-group-item list-group-item-action">Клавишные</li>
+        <li className="item flex-fill  list-group-item list-group-item-action">Супер-игра</li>
       </ul>
     )
   }

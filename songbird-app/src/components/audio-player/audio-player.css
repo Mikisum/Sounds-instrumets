@@ -1,7 +1,16 @@
 .player{
-  background-color: #222222 !important;
+  background-color: #303030 !important;
+  box-shadow: none;
 }
 
-.rhap_main-controls svg {
-  color: blue !important;
+.rhap_progress-section {
+  flex-wrap: wrap;
+}
+
+.rhap_volume-controls {
+  width: 100%;
+}
+
+.rhap_progress-container {
+  margin: 0 0 0 20px;
 }

@@ -12,10 +12,11 @@
 .default {
   background-color: #444;
 }
+
 .error{
-  background-color: red;
+  background-color: rgb(221, 58, 58);
 }
 
 .success {
-  background-color: turquoise;
+  background-color: #5b42cb;
 }

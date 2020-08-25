@@ -1,3 +1,40 @@
-.bird-details {
-  min-height: 283px;
+.details {
+  max-height: 302px;
+  min-height: 302px;
+  overflow-y: auto;
+}
+
+.details h4 {
+  border-bottom: 1px solid #444 !important;
+}
+
+.details {
+  border: 1px solid #444;
+}
+
+.latinName {
+  border-bottom: 1px solid #444;
+}
+
+@media (max-width: 992px) {
+  .image-container {
+   
+  
+    text-align: center;
+  }
+
+  .name-container {
+    text-align: center;
+  }
+}
+
+@media (max-width: 992px) {
+  
+  .bird-details {
+    max-height: min-content;
+  }
+
+  .image-container {
+    margin-bottom: 15px;
+  }
 }

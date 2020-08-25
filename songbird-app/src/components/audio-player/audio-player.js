@@ -10,14 +10,12 @@ export default class Player extends Component {
     return (
       <div className="player">
         <AudioPlayer
-              className="player"
-              // autoPlay
+              className="player py-0"
+              layout="stacked"
               src={ src }
-              layout="horizontal-reverse"
               showJumpControls={false}
-              customControlsSection={
-                [RHAP_UI.MAIN_CONTROLS, RHAP_UI.VOLUME_CONTROLS]
-              }
+              customProgressBarSection={[RHAP_UI.VOLUME_CONTROLS, RHAP_UI.MAIN_CONTROLS, RHAP_UI.PROGRESS_BAR]}
+              customControlsSection={[RHAP_UI.CURRENT_TIME,  RHAP_UI.DURATION]}
               autoPlayAfterSrcChange={false}
               />
       </div>

@@ -21,12 +21,11 @@ export default class RandomBird extends Component {
     <AudioPlayer
       ref={player}
       src={audio}
-      className="player"
-      layout="horizontal-reverse"
+      className="player py-2"
+      layout="stacked"
       showJumpControls={false}
-      customControlsSection={
-        [RHAP_UI.MAIN_CONTROLS, RHAP_UI.VOLUME_CONTROLS]
-      }
+      customProgressBarSection={[RHAP_UI.VOLUME_CONTROLS, RHAP_UI.MAIN_CONTROLS, RHAP_UI.PROGRESS_BAR]}
+      customControlsSection={[RHAP_UI.CURRENT_TIME,  RHAP_UI.DURATION]}
       autoPlayAfterSrcChange={false}
     />
   )
@@ -36,15 +35,15 @@ export default class RandomBird extends Component {
     const { level, random, isRightAnswer} = this.props;
     console.log(`Правильный ответ - ${birdsData[level][random].name}`);
     return (
-      <div className="my-2 card">
-        <div className="row no-gutters">
-          <div className="col-md-4 p-3">
+      <div className="bird-container my-3 card p-3">
+        <div className="row">
+          <div className="image-container col-lg-3 col-md-4 col-sm-6">
             <img className="bird-image card-img" alt="bird" 
               src={isRightAnswer ? birdsData[level][random].image : defaultBird}></img>
           </div>
-          <div className="col-md-8">
-            <div className="card-body">
-              <h1 className="card-title">{isRightAnswer ? birdsData[level][random].name: '*****'}</h1>
+          <div className="col-lg-9 col-md-8 col-sm-6">
+            <div className="card-body p-0">
+              <h3 className="card-title m-0">{isRightAnswer ? birdsData[level][random].name: '*****'}</h3>
               <div className="audio-player">{this.createAudioPlayer(birdsData[level][random].audio)}</div>
             </div>
           </div>
