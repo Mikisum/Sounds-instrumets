@@ -112,7 +112,7 @@ export default class App extends Component {
 
   render() {
 
-    const { random, level, score, gameOver, isRightAnswer } = this.state;
+    const { random, level, score, gameOver, isRightAnswer, isSelected } = this.state;
     if (gameOver) {
       return (
         <div>
@@ -144,7 +144,8 @@ export default class App extends Component {
         <div className="col-md-6">
           <BirdDetails
             birdId={this.state.selectedBird}
-            level={level}/>
+            level={level}
+            isSelected={isSelected}/>
         </div>
       </div>
       <RoundButton 

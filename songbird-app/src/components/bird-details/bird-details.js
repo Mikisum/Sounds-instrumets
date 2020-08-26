@@ -36,8 +36,9 @@ export default class BirdDetails extends Component {
   }
 
   render() {
+    const { isSelected } = this.props;
 
-    if(!this.state.bird) {
+    if(!this.state.bird || !isSelected ) {
       return (
       <div className="bird-details">
         Послушайте плеер. Выберите птицу из списка
