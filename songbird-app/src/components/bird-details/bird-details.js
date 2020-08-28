@@ -41,7 +41,7 @@ export default class BirdDetails extends Component {
     if(!this.state.bird || !isSelected ) {
       return (
       <div className="bird-details">
-        Послушайте плеер. Выберите птицу из списка
+        Послушайте плеер. Выберите инструмент из списка
       </div>
       )
     }
