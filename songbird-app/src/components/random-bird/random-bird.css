@@ -1,0 +1,51 @@
+.bird-image {
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+}
+
+.bird-container {
+  border: 1px solid #444;
+}
+
+.rhap_progress-section {
+  flex-wrap: wrap;
+}
+
+.rhap_volume-controls {
+  width: 100%;
+}
+
+.rhap_main-controls svg {
+  color: #7358ea;
+}
+
+.rhap_volume-button svg {
+  color: #7358ea;
+}
+
+.rhap_progress-container {
+  margin: 0 0 0 20px;
+}
+
+
+.rhap_time{
+  color: white !important;
+}
+
+
+.card-title {
+  border-bottom: 1px solid #444;
+}
+
+@media (max-width: 570px) {
+  .card-title {
+    text-align: center;
+  }
+ 
+  .image-container {
+    margin-bottom: 15px !important;
+    margin: auto;
+  }
+}
